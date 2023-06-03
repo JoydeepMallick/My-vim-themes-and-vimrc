@@ -1,5 +1,8 @@
 # My-vim-themes-and-vimrc
-It contains the colors folder and autoload folder and also my personal .vimrc file. It has no additional plugins and a very minimalistic setting with remapped keys to run programs in most common programming languages.
+#### Gvim and vim users   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg" alt="vim" width="45" height="45"/> targeted, for my neovim config visit [here](https://github.com/JoydeepMallick/My-Neovim-config-in-LUA)
+It contains the colors folder and autoload folder and also my personal .vimrc files. 
+The **minimal vimrc** file has no additional plugins and a very minimalistic setting with remapped keys to run programs in most common programming languages.
+The **ultimate vimrc** has plugins to make it get the most of vim for power users.
 
 ## Below are few screenshot(s) of my minimal .vimrc:-
 
@@ -18,14 +21,14 @@ It contains the colors folder and autoload folder and also my personal .vimrc fi
 
 ![Screenshot (442)](https://user-images.githubusercontent.com/94801952/208480616-b2d87c0c-c39d-4d34-a224-dcd54563714a.png)
 
-Hope you like my personal taste of themes(Don't forget about the themes plugin🔥😍 with 1000+ themes in my ultimate vimrc).😀
+Hope you like my personal taste of themes.😀
 
 ## ***PREREQUISITES***
-#### For minimal vimrc
+### For minimal vimrc
 Be sure to copy color and autoload folder in vim directory.
 
-#### For ultimate vimrc
-Be sure to install Vim-Plug, To know how to install it please visit [Vim-Plug repository](https://github.com/junegunn/vim-plug).
+### For ultimate vimrc
+Be sure to install Vim-Plug, To know how to install it please visit [Vim-Plug repository](https://github.com/junegunn/vim-plug). Then simply copy the contents of ultimate vimrc folder to ```C:\Users\User\ ``` directory in the .vimrc file present there(probably).
 
 ## ***INSTALLATION & USAGE***
 Simply navigate to the vimrcs folder and choose the .vimrc file of your choice and copy it into your .vimrc config.
