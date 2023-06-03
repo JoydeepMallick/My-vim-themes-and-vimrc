@@ -22,7 +22,7 @@ The **ultimate vimrc** has plugins to make it get the most of vim for power user
 
 ![Screenshot (442)](https://user-images.githubusercontent.com/94801952/208480616-b2d87c0c-c39d-4d34-a224-dcd54563714a.png)
 
-**Lovely startup screen....
+**Lovely startup screen....**
 
 ![Screenshot (611)](https://github.com/JoydeepMallick/My-vim-themes-and-vimrc/assets/94801952/4366959b-5c12-4379-a93f-9df000741ad1)
 
