@@ -12,6 +12,8 @@
 
 6. Customize the `.vimrc` file according to your preferences. Feel free to contact me if you encounter any issues or have suggestions for improvement.
 
+#### If stuck , ```:help``` in vim comes to the rescue🥺 most of the times, read documentation, learnt it from experience.
+
 ### Update:
 
 I have added a modified_startify.vim folder that is sourced within the `.vimrc` file itself. Copy it to your desired location and *edit the location accordingly* in the modified startup section of my `.vimrc`. 🙂
