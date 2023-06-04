@@ -34,7 +34,7 @@ Hope you like my personal taste of themes.😀
 Be sure to copy color and autoload folder in vim directory.
 
 ### For ultimate vimrc
-Be sure to install Vim-Plug, To know how to install it please visit [Vim-Plug repository](https://github.com/junegunn/vim-plug). Then simply copy the contents of ultimate vimrc folder to ```C:\Users\User\ ``` directory in the .vimrc file present there(probably).  More detailed instructions in the [readme file](https://github.com/JoydeepMallick/My-vim-themes-and-vimrc/blob/main/vimrcs/ultimate_vimrc/readme.md).
+Be sure to install Vim-Plug, To know how to install it please visit [Vim-Plug repository](https://github.com/junegunn/vim-plug). Then simply copy the contents of ultimate vimrc folder to the .vimrc file present there(probably) in the ```C:\Users\YourUserName\ ``` directory or rather ```%HOME%``` directory .  More detailed instructions in the [readme file](https://github.com/JoydeepMallick/My-vim-themes-and-vimrc/blob/main/vimrcs/ultimate_vimrc/readme.md).
 
 ## ***INSTALLATION & USAGE***
 Simply navigate to the vimrcs folder and choose the .vimrc file of your choice and copy it into your .vimrc config.
