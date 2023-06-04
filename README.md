@@ -6,7 +6,7 @@ The **minimal vimrc** file has no additional plugins and a very minimalistic set
 
 The **ultimate vimrc** has plugins to make it get the most of vim for power users.
 
-## Below are few screenshot(s) of my minimal .vimrc:-
+## Below are few screenshot(s) of my minimal .vimrc  :-
 
 **__Personal favourite colorscheme : Cobalt🥶__**
 
@@ -16,7 +16,7 @@ The **ultimate vimrc** has plugins to make it get the most of vim for power user
 
 ![Screenshot (408)](https://user-images.githubusercontent.com/94801952/187082429-8628adb2-e271-4123-b8bc-caa2f91d7fe0.png)
 
-## screenshot(s) of my ultimate .vimrc:-
+## screenshot(s) of my ultimate .vimrc  :-
 
 **Lovely pet named colorscheme  : Badwolf🐺**
 
@@ -37,9 +37,9 @@ Be sure to copy color and autoload folder in vim directory.
 Be sure to install Vim-Plug, To know how to install it please visit [Vim-Plug repository](https://github.com/junegunn/vim-plug). Then simply copy the contents of ultimate vimrc folder to the .vimrc file present there(probably) in the ```C:\Users\YourUserName\ ``` directory or rather ```%HOME%``` directory .  More detailed instructions in the [readme file](https://github.com/JoydeepMallick/My-vim-themes-and-vimrc/blob/main/vimrcs/ultimate_vimrc/readme.md).
 
 ## ***INSTALLATION & USAGE***
-Simply navigate to the vimrcs folder and choose the .vimrc file of your choice and copy it into your .vimrc config.
+Simply navigate to the vimrcs folder and choose the .vimrc file of your choice and copy it into your .vimrc config. More instructions in the readme.
 
-For e.g. (Windows users taken into focus, sorry😅) if you have vim9.x installed in ```C:\Users\User\ProgramFiles\vim9x\``` then simply copy and paste the color and autoload folder in the installation folder for vim ``` C:\Users\User\ProgramFiles\vim9x\ ```(only applicable for minimal vimrc since we didn't use any plugins to install stuff) and paste the .vimrc file in ``` C:\Users\User\ ``` directory.
+For e.g. (Windows users taken into focus, sorry😅) if you have vim9.x installed in ```C:\Users\YourUserName\ProgramFiles\vim9x\``` then simply copy and paste the color and autoload folder in the installation folder for vim ``` C:\Users\YourUserName\ProgramFiles\vim9x\ ```(only applicable for minimal vimrc since we didn't use any plugins to install stuff) and paste the .vimrc file in ``` C:\Users\YourUserName\ ``` directory or rather ```%HOME%``` directory.
 
 
 
