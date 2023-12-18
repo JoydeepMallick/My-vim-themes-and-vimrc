@@ -10,7 +10,7 @@ The **ultimate vimrc** has plugins to make it get the most of vim for power user
 
 🙏🏼🙏🏼🥺 RIP 🥺🙏🏼🙏🏼
 
-![download](https://github.com/JoydeepMallick/My-vim-themes-and-vimrc/assets/94801952/d8c0e48f-485a-427d-a3a4-d3817f0e619d)
+[![download](https://github.com/JoydeepMallick/My-vim-themes-and-vimrc/assets/94801952/d8c0e48f-485a-427d-a3a4-d3817f0e619d)](https://en.wikipedia.org/wiki/Vim_(text_editor))
 
 
 🌼🌸🌺💐💐🌺🌸🌼
