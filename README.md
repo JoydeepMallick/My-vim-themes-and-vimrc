@@ -6,6 +6,13 @@ The **minimal vimrc** file has no additional plugins and a very minimalistic set
 
 The **ultimate vimrc** has plugins to make it get the most of vim for power users.
 
+## A tribute to one and only **"Father of Vim"** [Bram Moolenaar](https://en.wikipedia.org/wiki/Bram_Moolenaar)
+
+🙏🏼🙏🏼🥺 RIP 🥺🙏🏼🙏🏼
+![download](https://github.com/JoydeepMallick/My-vim-themes-and-vimrc/assets/94801952/d8c0e48f-485a-427d-a3a4-d3817f0e619d)
+
+
+🌼🌸🌺💐💐🌺🌸🌼
 ## Below are few screenshot(s) of my minimal .vimrc  :-
 
 **__Personal favourite colorscheme : Cobalt🥶__**
