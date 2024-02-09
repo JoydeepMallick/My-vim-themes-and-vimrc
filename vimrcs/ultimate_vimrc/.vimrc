@@ -59,10 +59,12 @@ nnoremap <M-l> :call NumberToggle()<cr>
 " Show file stats
 set ruler
 
-" Blink cursor on error instead of beeping (grr)
-" set visualbell
+" Stop annoying beep sounds and prevent screen flash in visual bell
+"set noeb vb t_vb=  " not working
+set belloff=all
 
-" Encoding
+
+"Encoding
 set encoding=utf-8
 set fileencoding=utf-8
 set termencoding=utf-8
@@ -113,10 +115,10 @@ set autochdir
 " once word is found press enter, then press n to jump between all searches
 map <C-F> :vimgrep /
 
-" Select current text under cursor and replace it, to be worked upon🤨🙄
+" Select current text under cursor and replace it
 " ----------------------------------------------------------------------
-nnoremap <space>s [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]
-vnoremap <space>s [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]
+nnoremap <space>s :%s/<C-r><C-w>//gI<Left><Left><Left>
+vnoremap <space>s :%s/<C-r><C-w>//gI<Left><Left><Left>
 
 
 " highlights search results
@@ -134,8 +136,8 @@ set smartcase
 " show matching brackets when cursor is over them
 set showmatch
 
-" clear search
-map <leader><space> :let @/=''<cr>
+" clears highlighting on double escaping in normal mode
+nnoremap <silent> <Esc><Esc> :let @/=""<CR>
 
 " Formatting
 map <leader>gq gqip
