@@ -7,6 +7,17 @@
 ""`-0-0-'"`-0-0-'./o--000'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-' 
 
 
+"=======================================================================
+"
+" Written by :- Joydeep Mallick
+"
+" 2 important things to git clone by following the below links :- 
+"
+" https://github.com/markonm/traces.vim
+" https://github.com/junegunn/vim-plug
+"
+"=======================================================================
+
 
 " Don't try to be vi compatible
 set nocompatible
@@ -49,7 +60,7 @@ nnoremap <M-l> :call NumberToggle()<cr>
 set ruler
 
 " Blink cursor on error instead of beeping (grr)
-set visualbell
+" set visualbell
 
 " Encoding
 set encoding=utf-8
@@ -100,8 +111,7 @@ set autochdir
 " vnoremap / /\v
 
 " once word is found press enter, then press n to jump between all searches
-map <C-F> /
-map <CS-F> :vimgrep /
+map <C-F> :vimgrep /
 
 " Select current text under cursor and replace it, to be worked upon🤨🙄
 " ----------------------------------------------------------------------
@@ -127,11 +137,6 @@ set showmatch
 " clear search
 map <leader><space> :let @/=''<cr>
 
-" Remap help key.
-"inoremap <F1> <ESC>:set invfullscreen<CR>a
-"nnoremap <F1> :set invfullscreen<CR>
-"vnoremap <F1> :set invfullscreen<CR>
-
 " Formatting
 map <leader>gq gqip
 
@@ -156,14 +161,6 @@ set textwidth=0 wrapmargin=0 " avoid physical line wrapping
 " read https://stackoverflow.com/questions/8247243/highlighting-the-current-line-number-in-vim
 " highlight the line number(but slows down gvim😱)
 " set cursorline 
-
-" inoremap ( ()<Esc>i
-" inoremap { {}<Esc>i
-" inoremap {<CR> {<CR>}<Esc>O
-" inoremap [ []<Esc>i
-"inoremap < <><Esc>i
-" inoremap ' ''<Esc>i
-" inoremap " ""<Esc>i
 
 "_________________________________ STATUS LINE _________________________________
 
@@ -220,9 +217,9 @@ nnoremap <C-s> <Esc>:update<cr>
 
 "TODO 
 
-"_______________ go to normal mode in terminal window made easy _______________
+"___ go to normal mode in terminal window made easy (also applies to popup window😕) ___
 
-tnoremap <Esc> <C-W>N
+" tnoremap <Esc> <C-W>N
 " set notimeout ttimeout timeoutlen=100
 
 "______________________ playing with mutiple window tabs ________________________
@@ -605,11 +602,13 @@ let g:gruvbox_contrast_dark='hard'
 
 
 try
+colorscheme darkdevel 
+set nocursorline
 " colorscheme gruvbox8_hard
 " colorscheme madeofcode
 " colorscheme PaperColor
 " colorscheme spectro
-colorscheme badwolf
+" colorscheme badwolf
 " colorscheme onehalfdark
 " colorscheme base16-railscasts
 " colorscheme colorsbox-material
@@ -649,8 +648,8 @@ set guifont=mononoki_NFM:h13
 
 let g:startify_files_number = 20
 
-if filereadable(expand('H:/Books to read/Computer Programming resources/vim/modified_startify.vim'))
-    source H:/Books to read/Computer Programming resources/vim/modified_startify.vim
+if filereadable(expand('~/modified_startify.vim'))
+    source ~/modified_startify.vim
 else 
   echo "Could not load your Startify setup. Loading default..."
 endif
@@ -981,7 +980,7 @@ endif
 "
 " Press % while in Normal mode to jump between start and end braces.
 "
-" To go to normal mode in terminal window <C-W>N which is annoying hence remaped to ESC above, read more in documentation :help terminal-typing and https://github.com/vim/vim/issues/2490#issuecomment-383382372
+" To go to normal mode in terminal window or popup windows press <C-W>N or <C-\><C-n>, read more in documentation :help terminal-typing and https://github.com/vim/vim/issues/2490#issuecomment-383382372
 "
 " In :Explorer mode(:Ex), to delete file press D and rename press R and to view functionalities press <F1>  which launches :help for netrw. To create a new directory press d then enter name, to create new file % then file name.
 "
