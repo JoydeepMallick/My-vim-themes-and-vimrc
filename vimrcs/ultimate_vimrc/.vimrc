@@ -376,10 +376,6 @@ nnoremap <F6> <ESC> :w <bar> !vcvars64.bat && cl % /std:c++latest -fsanitize=add
 
 noremap <C-a> <ESC> ggVG <CR>
 
-"-------------------------yanking(copying) with Ctrl +C---------------------
-
-"noremap <C-c> <ESC> y <CR>
-
 "------------------- Default copying,deletion to clipboard -----------------
 
 set clipboard=unnamed
@@ -475,7 +471,7 @@ call plug#begin()
 " Make sure you use single quotes
 
 " All possible colorschemes
-Plug 'flazz/vim-colorschemes'
+Plug 'flazz/vim-colorschemes' " onedark needs repair, to use onedark add it from joshdick(👀love the name LMAO)
 Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
@@ -486,6 +482,8 @@ Plug 'connorholyday/vim-snazzy'
 Plug 'veloce/vim-aldmeris'
 Plug 'romgrk/doom-one.vim'
 Plug 'GustavoPrietoP/doom-themes.nvim'
+Plug 'rose-pine/vim'
+Plug 'joshdick/onedark.vim'
 " A Vim color scheme for 16-color terminals
 Plug 'noahfrederick/vim-noctu'
 Plug 'ajmwagar/vim-deus'
@@ -537,7 +535,7 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'lervag/vimtex'
 
 " ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors) in NeoVim 0.2.0+ and Vim 8 while you edit your text files, and acts as a Vim Language Server Protocol client.
-Plug 'dense-analysis/ale'    " , { 'on':  'ALEToggle' }
+" Plug 'dense-analysis/ale'    " , { 'on':  'ALEToggle' }
 
 
 " shows css color when hex value is written 
@@ -562,7 +560,7 @@ Plug 'junegunn/fzf.vim'
 " prettifies the file upon save
 Plug 'prettier/vim-prettier'
 
-" call wintweek else remap to ctrl+c
+" call wintweak else remap to ctrl+c
 Plug 'imranZERO/wintweak.gvim'
 
 " highlight hyperlinks
@@ -587,9 +585,14 @@ Plug 'liuchengxu/vim-which-key'
 " live-server
 " Plug 'turbio/bracey.vim'
 
-" git plugin
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'airblade/vim-gitgutter'
+" git plugins
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+Plug 'mhinz/vim-signify' "or an alternative is  Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-rhubarb'
+
+" Keep records of past changes 
+Plug 'mbbill/undotree'
 
 " ascii image genrator from image
 " Plug 'ashisha/image.vim'
@@ -786,6 +789,9 @@ command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 let g:coc_global_extensions = [
       \ 'coc-snippets',
       \ 'coc-pairs',
+      \ 'coc-html',
+      \ 'coc-css',
+      \ 'coc-yaml',
       \ 'coc-tsserver',
       \ 'coc-eslint',
       \ 'coc-prettier',
@@ -845,6 +851,12 @@ nnoremap <leader>fr :Rg <C-R><C-W> <C-R>=expand('%:p')<CR><CR>
 inoremap <C-b> <Esc>:NERDTreeToggle<cr>
 nnoremap <C-b> <Esc>:NERDTreeToggle<cr>
 
+"_____________________________________ Devicons settings ____________________________________
+" Can be enabled or disabled
+let g:webdevicons_enable_nerdtree = 1
+" whether or not to show the nerdtree brackets around flags
+let g:webdevicons_conceal_nerdtree_brackets = 1
+
 "_____________________________________ ale linting settings ___________________________________
 
 inoremap <M-a> <Esc>:ALEToggle<cr>
@@ -882,7 +894,7 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 " let g:ale_disable_lsp = 1
 
-"___________________________________ Color picker wintweak ____________________________________
+"___________________________________ Launch wintweak ____________________________________
 
 inoremap <C-c> <Esc>:Wintweak<Cr>
 nnoremap <C-c> <Esc>:Wintweak<Cr>
@@ -904,35 +916,77 @@ nnoremap <C-c> <Esc>:Wintweak<Cr>
 
 " ________________________________lighline settings_____________________________________
 
+" TODO more work testing below
+
+" read more :-
+" https://www.reddit.com/r/vim/comments/lvgjmo/lightline_glyphs/
+" https://pastebin.com/z608uujk
+
 let g:lightline = {
-            \ 'colorscheme': 'molokai',
-            \ 'enable': {
-            \ 'statusline': 1,
-            \ 'tabline': 1
-            \ },
-            \ 'active': {
-            \   'left': [ 
-            \               [ 'mode', 'paste' ],
-            \               [ 'gitbranch', 'readonly', 'filename' ],
-            \           ],
-            \  'right' : [
-            \               ['lineinfo'],
-            \               ['percent'],
-            \               [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ],
-            \            ],
-            \ },
-            \ 'component_function': {
-            \   'filename': 'LightlineFilename',
-            \   'gitbranch': 'FugitiveHead',
-            \ },
-            \ }
-
-
-function! LightlineFilename()
-let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-let modified = &modified ? ' *' : ''
-return filename . modified
+      \ 'colorscheme': 'ayu_dark',
+      \ 'enable': {
+      \ 'statusline': 1,
+      \ 'tabline': 1
+      \ },
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'gitbranch', 'filename' ], [ 'readonly', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype', 'charvaluehex' ] ]
+      \ },
+      \ 'component_function': {
+      \   'modified': 'LightLineModified',
+      \   'filename': 'LightLineFilename',
+      \   'readonly': 'LightLineReadonly',
+      \   'fileformat': 'LightLineFileformat',
+      \   'filetype': 'LightLineFiletype',
+      \   'gitbranch': 'LightLineFugitive',
+      \   'mode': 'LightLineMode',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+ 
+function! LightLineModified()
+  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '✹' : &modifiable ? ' ' : ''
 endfunction
+ 
+function! LightLineReadonly()
+  return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '' : ''
+endfunction
+
+function! LightLineFilename()
+  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \  &ft == 'unite' ? unite#get_status_string() :
+        \  &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+ 
+function! LightLineFugitive()
+if &ft !~? 'vimfiler\|gundo' && exists("*FugitiveHead")
+let _ = FugitiveHead()
+return strlen(_) ? ' '._ : ''
+endif
+return ''
+endfunction
+ 
+function! LightLineFileformat()
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction 
+
+function! LightLineFiletype()
+return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction 
+
+function! LightLineFileencoding()
+  return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+ 
+function! LightLineMode()
+  return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+
 
 "_________________________________ vimtex settings _____________________________________
 
@@ -996,3 +1050,5 @@ endif
 " (helps when performing compilation task else causes strange error)
 " Read more :- https://codeahoy.com/q/29/vim-faq#:~:text=To%20automatically%20change%20the%20current,set%20the%20option%20'autochdir'.
 " setting autochangedir is prefered when fuzzy find file and then work on it.
+"
+" Press ctrl C and try options like making background transparent👀
