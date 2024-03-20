@@ -471,18 +471,21 @@ call plug#begin()
 " Make sure you use single quotes
 
 " All possible colorschemes
-Plug 'flazz/vim-colorschemes' " onedark needs repair, to use onedark add it from joshdick(👀love the name LMAO)
+Plug 'flazz/vim-colorschemes'          " onedark needs repair, to use onedark add it from joshdick(👀love the name LMAO)
+Plug 'rafi/awesome-vim-colorschemes'
 Plug 'morhetz/gruvbox'
 Plug 'lifepillar/vim-gruvbox8'
 Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
 Plug 'muellan/am-colors'
 Plug 'cooper-anderson/glowbeam.nvim'
-Plug 'EdenEast/nightfox.nvim'     " probably not working due to lack of lua support
+Plug 'EdenEast/nightfox.nvim'          " probably not working due to lack of lua support
 Plug 'connorholyday/vim-snazzy'
 Plug 'veloce/vim-aldmeris'
-Plug 'romgrk/doom-one.vim'
+Plug 'romgrk/doom-one.vim'             " doom themes for emacs ported to vim 
+Plug 'mswift42/vim-themes'             " emacs themes ported to vim
 Plug 'GustavoPrietoP/doom-themes.nvim'
 Plug 'rose-pine/vim'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'joshdick/onedark.vim'
 " A Vim color scheme for 16-color terminals
 Plug 'noahfrederick/vim-noctu'
@@ -607,9 +610,15 @@ let g:gruvbox_contrast_dark='hard'
 
 
 try
-colorscheme darkdevel 
-set nocursorline
-" colorscheme gruvbox8_hard
+colorscheme rosepine_moon         " use hi Normal guibg=#000000
+hi Normal guibg=#000000
+" colorscheme catppuccin_mocha      " use hi Normal guibg=#000000
+" colorscheme candycode           " use transparent background
+" colorscheme darkdevel           " set nocursorline
+" colorscheme gruvbox8_hard       " use hi Normal guibg=#000000 and transparent background
+" colorscheme doom-gruvbox        " use hi Normal guibg=#000000 and transparent background
+" colorscheme doom-dracula        " use hi Normal guibg=#000000 and transparent background
+" colorscheme rosepine            " use hi Normal guibg=#000000 and transparent background
 " colorscheme madeofcode
 " colorscheme PaperColor
 " colorscheme spectro
@@ -622,7 +631,7 @@ set nocursorline
 " colorscheme ayu
 " colorscheme inkpot
 " colorscheme tempus-warp
-" colorscheme DarkDefault  " use with complete dark background
+" colorscheme DarkDefault         " hi Normal guibg=#000000
 " colorscheme abbott
 
 catch
@@ -819,7 +828,7 @@ let g:python_highlight_all = 1
 nnoremap <leader>ff :call fzf#vim#files('', fzf#vim#with_preview('right'))<CR>
 
 " **Live Grep:** Search for text within files using ripgrep.
-nnoremap <leader>rg :Rg<CR>
+nnoremap <leader>rg :Rg!<CR>
 
 " **Fuzzy Git File Finder:** Focus search on tracked Git files./ :GitFiles
 nnoremap <leader>gf :call fzf#vim#gitfiles('', fzf#vim#with_preview('right'))<CR>
@@ -1032,7 +1041,7 @@ endif
 "
 " To select current line just press shift+'v' or 'V'
 "
-" :Rg launches ripgrep and :Rg! launches ripgrep in vim
+" :Rg launches ripgrep in small window and :Rg! launches ripgrep in fullscreen
 "
 " Press % while in Normal mode to jump between start and end braces.
 "
