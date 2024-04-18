@@ -493,6 +493,9 @@ Plug 'ajmwagar/vim-deus'
 Plug 'Everblush/everblush.vim'
 
 
+" highlight yanked text 
+Plug 'machakann/vim-highlightedyank'
+
 " lua support for vim
 Plug 'wolfgangmehner/lua-support'
 
@@ -612,7 +615,7 @@ let g:gruvbox_contrast_dark='hard'
 try
 colorscheme rosepine_moon         " use hi Normal guibg=#000000
 hi Normal guibg=#000000
-" colorscheme catppuccin_mocha      " use hi Normal guibg=#000000
+" colorscheme catppuccin_mocha    " use hi Normal guibg=#000000
 " colorscheme candycode           " use transparent background
 " colorscheme darkdevel           " set nocursorline
 " colorscheme gruvbox8_hard       " use hi Normal guibg=#000000 and transparent background
@@ -868,35 +871,35 @@ let g:webdevicons_conceal_nerdtree_brackets = 1
 
 "_____________________________________ ale linting settings ___________________________________
 
-inoremap <M-a> <Esc>:ALEToggle<cr>
-nnoremap <M-a> <Esc>:ALEToggle<cr>
+" inoremap <M-a> <Esc>:ALEToggle<cr>
+" nnoremap <M-a> <Esc>:ALEToggle<cr>
 
-"don't check syntax immediately on open or on quit
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_save = 1
+" " don't check syntax immediately on open or on quit
+" let g:ale_lint_on_enter = 0
+" let g:ale_lint_on_save = 1
 
-" error symbol to use in sidebar
-let g:ale_sign_error = '☢️'
-let g:ale_sign_warning = '⚡'
+" " error symbol to use in sidebar
+" let g:ale_sign_error = '☢️'
+" let g:ale_sign_warning = '⚡'
 
-" show number of errors
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-    return l:counts.total == 0 ? 'OK' : printf(
-        \   '%d⨉ %d⚠ ',
-        \   all_non_errors,
-        \   all_errors
-        \)
-endfunction
-set statusline+=%=
-set statusline+=\ %{LinterStatus()}
+" " show number of errors
+" function! LinterStatus() abort
+" let l:counts = ale#statusline#Count(bufnr(''))
+" let l:all_errors = l:counts.error + l:counts.style_error
+" let l:all_non_errors = l:counts.total - l:all_errors
+" return l:counts.total == 0 ? 'OK' : printf(
+" \   '%d⨉ %d⚠ ',
+" \   all_non_errors,
+" \   all_errors
+" \)
+" endfunction
+" set statusline+=%=
+" set statusline+=\ %{LinterStatus()}
 
-" format error strings
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" " format error strings
+" let g:ale_echo_msg_error_str = 'E'
+" let g:ale_echo_msg_warning_str = 'W'
+" let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 " integrate coc with ale, also update coc config by adding the below line :-
 " diagnostic.displayByAle": true
@@ -1061,3 +1064,5 @@ endif
 " setting autochangedir is prefered when fuzzy find file and then work on it.
 "
 " Press ctrl C and try options like making background transparent👀
+"
+" ap means around paragraph, iw means inside word , i{  means inside parenthesis and so on, use wisely.
