@@ -29,7 +29,7 @@ If you have any further questions, please don't hesitate to reach out.
 
 1. Install `vim` in WSL2. Then launch it by typing  `vim`<kbd> Enter </kbd>.  
 2. Type `:e $MYVIMRC` which directly opens up the file. Its located in the home directory where you will also find `.bashrc` or `.zshrc`. You can later confirm it by opening a new terminal in wsl2 and typing `find .vimrc` or `find _vimrc` and one will give output probably. Do some more google search.
-3. In the vimrc copy paste all contents as my `.vimrc` specifically curated for WSL2 (tested in debian 12).
+3. In the vimrc copy paste all contents as my `.\WSL2\.vimrc` specifically curated for WSL2 (tested in debian 12).
 4. Save and quit using `:wq`.
 5. Now reopen vim and then type `:PlugInstall` to be Vim Plug Plugin Manager (in this case) install all the necessary modules from internet like LSP, themes, ....
 6. Now its ready.
