@@ -1,0 +1,253 @@
+" Don't try to be vi compatible
+set nocompatible
+
+" Helps force plugins to load correctly when it is turned back on below
+filetype off
+
+" set modifiable
+set ma
+
+" Turn on syntax highlighting
+syntax on
+
+" For plugins to load correctly
+filetype plugin indent on
+
+" TODO: Pick a leader key, default '\'
+let mapleader = ' '
+
+" Security
+set modelines=0
+
+" Show line numbers in relative fashion by default
+set number   "set nu
+set rnu
+
+" Show file stats
+set ruler
+
+" Stop annoying beep sounds and prevent screen flash in visual bell
+" set noeb vb t_vb=  " not working
+set belloff=all
+
+"Encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set termencoding=utf-8
+
+" Whitespace
+set textwidth=79
+set formatoptions=tcqrn1
+" Set the below 3 values to 2 if you feel it more comfortable(standard is 4)
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+" use spaces instead of tabs
+set expandtab
+" Be smart when using tabs ;)
+set smarttab
+set noshiftround
+
+" scroll at end leaves 5 extra spaces
+set scrolloff=5 
+set backspace=indent,eol,start
+
+" Allow hidden buffers
+set hidden
+
+" Rendering
+set ttyfast
+
+" Show the command being executed
+set showcmd
+
+"set current directory as pwd 
+set autochdir
+
+" highlights search results
+set hlsearch
+
+" make search act like search in modern browser
+set incsearch
+
+" Ignore case while searching
+set ignorecase
+
+" when searching try to be smart about cases
+set smartcase
+
+" show matching brackets when cursor is over them
+set showmatch
+
+" clears highlighting on double escaping in normal mode
+nnoremap <silent> <Esc><Esc> :let @/=""<CR>
+
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines visually
+set textwidth=0 wrapmargin=0 " avoid physical line wrapping
+
+" Show matching brackets when text indicator is over them
+set showmatch
+
+"set wild menu for the suggestion to appear
+set wildmenu
+
+"___________________________ working with windows _______________________________
+
+" delete current window
+nnoremap <leader>wc <C-W>c
+" move to other window
+nnoremap <leader>w <C-W>w
+" horizontal split window below 
+nnoremap <leader>s <C-W>s
+" vertical split window right
+nnoremap <leader>v <C-W>v
+
+" move to window on left 
+nnoremap <C-h> <C-W>h
+" move to window on right
+nnoremap <C-l> <C-W>l
+" move to window above you
+nnoremap <C-k> <C-W>k
+" move to window below you 
+nnoremap <C-j> <C-W>j 
+
+" adjusting split sizes 
+noremap <silent> <C-Left> :vertical resize +3<CR>
+noremap <silent> <C-Right> :vertical resize -3<CR>
+noremap <silent> <C-Up> :resize +3<CR>
+noremap <silent> <C-Down> :resize -3<CR>
+
+" changing 2 split windows from vertical to horizontal or horizontal to vertical 
+map <Leader>th <C-w>t<C-w>H
+map <Leader>tk <C-w>t<C-w>K
+
+" list all open windows , seems similar to :Buffers
+nnoremap <leader>? :Windows<cr>
+" launch netrw explorer
+nnoremap <leader>ex :Ex<cr>
+
+"-------------------------- Split below and right ---------------------------
+" By default vim splits above and left
+set splitbelow splitright
+
+"--------------------Shift lines in normal or visual mode -------------------
+" press shift and j OR k to move lines up or down 
+nnoremap <S-k> :m .-2<CR>==
+nnoremap <S-j> :m .+1<CR>==
+vnoremap <S-k> :m '<-2<CR>gv=gv 
+vnoremap <S-j> :m '>+1<CR>gv=gv
+"------------------------(ctrl + a)SELECT ALL-------------------------------
+
+noremap <C-a> <ESC> ggVG <CR>
+
+"------------------- Default copying,deletion to clipboard -----------------
+
+set clipboard=unnamed
+
+"-------------------Pasting copied text from clipboard----------------------
+
+noremap <C-p> <ESC> "*p <CR>
+
+"-------------------Hide toolbar,menubar,scrollbar, others------------------
+
+function! ToggleGUICruft()
+  if &guioptions=='i'
+    exec('set guioptions=!cegimrLtTp')
+  else
+    exec('set guioptions=i')
+  endif
+endfunction
+
+"toggle key to hide all the above and display them again
+map <F12> <Esc>:call ToggleGUICruft()<cr>
+
+" by default, hide gui menus
+set guioptions=i
+
+
+" Plugins installed via Vim Plug
+call plug#begin()
+
+Plug 'rose-pine/vim'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+
+" highlight yanked text 
+Plug 'machakann/vim-highlightedyank'
+
+" On-demand loading
+Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+" This will add icons to stuff like NERDTree.
+Plug 'ryanoasis/vim-devicons'
+
+" Rainbow parenthesis
+Plug 'luochen1990/rainbow'
+
+"Commenting made easy (gcc for single line, select line in visuak mode then gc for multiple line)
+Plug 'chrisbra/vim-commentary'
+
+" vim suround 
+Plug 'tpope/vim-surround'
+
+" multiple cursor plugin for vim, use Ctrl+N
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+" autocomplete pairs
+Plug 'jiangmiao/auto-pairs'
+
+" call wintweak else remap to ctrl+c
+Plug 'imranZERO/wintweak.gvim'
+
+" highlight hyperlinks
+Plug 'itchyny/vim-highlighturl'
+
+" which key plugin 
+Plug 'liuchengxu/vim-which-key'
+
+call plug#end()
+
+
+" setting colorscheme
+try
+    colorscheme rosepine_moon         " use hi Normal guibg=#000000
+catch
+    echo "Could not load colorscheme, loading default"
+endtry
+
+
+" setting nerdfont
+set guifont=SauceCodePro_NFM:h13
+
+" set current line to highlight
+set cursorline
+
+
+"_______________________________________ trigger which key _____________________________________
+
+nnoremap <silent> <leader> :WhichKey ' ' <CR>
+" By default timeoutlen is 1000 ms
+set timeoutlen=500
+
+"____________________________ turn on rainbow parenthesis _______________________________
+
+let g:rainbow_active = 1
+
+"________________________________ NerdToggler mapping ___________________________________
+
+" press CTrl + B to open and close nerdtree
+inoremap <C-b> <Esc>:NERDTreeToggle<cr>
+nnoremap <C-b> <Esc>:NERDTreeToggle<cr>
+
+"_________________________________ Devicons settings ____________________________________
+" Can be enabled or disabled
+let g:webdevicons_enable_nerdtree = 1
+" whether or not to show the nerdtree brackets around flags
+let g:webdevicons_conceal_nerdtree_brackets = 1
+
+"___________________________________ Launch wintweak ____________________________________
+
+inoremap <C-c> <Esc>:Wintweak<Cr>
+nnoremap <C-c> <Esc>:Wintweak<Cr>
